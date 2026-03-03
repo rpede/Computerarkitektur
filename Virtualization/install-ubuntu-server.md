@@ -1,6 +1,6 @@
 # Installer Ubuntu Server
 
-> ![NOTE] Det er rimelig omstændigt at lave screenshot af alting.
+> [!NOTE] Det er rimelig omstændigt at lave screenshot af alting.
 > Derfor får du bare instruktioner som ren tekst her.
 
 - Vælg "Try or Install Ubuntu Server"
