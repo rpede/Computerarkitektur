@@ -101,4 +101,4 @@ Du burde nu kunne se navnet på din VM i navigationen i venstre side.
 Dobbelt-klik på navnet.
 Derefter på knappen "⏻ Start now".
 
-## [Installer Ubuntu Server]
+## [Installer Ubuntu Server](./proxmox-vm.md)
