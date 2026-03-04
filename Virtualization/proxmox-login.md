@@ -10,11 +10,10 @@ Accepter risikoen og fortsæt.
 > [!TIP]
 > Skærm billedet vil se anderledes ud afhængig af din browser.
 
-> [!NOTE]
-> Advarslen betyder bare at jeg ikke har betalt en certifikatmyndighed for at
-> signere et certifikat til serveren.
-> Den er ikke på internettet, kun tilgængelig fra vores eget netværk.
-> Derfor ikke så vigtig.
+Advarslen betyder bare at jeg ikke har betalt en certifikatmyndighed for at
+signere et certifikat til serveren.
+Den er ikke på internettet, kun tilgængelig fra vores eget netværk.
+Derfor ikke så vigtig.
 
 > [!CAUTION]
 > Hvis du ser sådan en advarsel når du prøver at besøge en hjemmeside på
@@ -22,7 +21,11 @@ Accepter risikoen og fortsæt.
 
 ## Login
 
-Derefter login, med "root" som brugernavn og det der er blevet oplyst.
+Derefter login.
+
+> [!TIP]
+> Hvis dette er en frisk installation kan du bruge "root" som brugernavn og det
+> password som blev skrevet under installationen.
 
 ![Proxmox Login](./02-proxmox-login.png)
 

@@ -41,4 +41,4 @@ kan du følge disse guides, en efter en.
 - [Login](./proxmox-login.md)
 - [Upload ISO](./proxmox-upload-iso.md)
 - [Opret VM](./proxmox-create-vm.md)
-  - [Install Ubuntu Server](./install-ubuntu-server.md)
+- [Install Ubuntu Server](./install-ubuntu-server.md)
