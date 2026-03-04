@@ -8,7 +8,14 @@ igang med det samme.
 
 [Klik her for at downloade ISO filen](https://ubuntu.com/download/server/thank-you?version=24.04.4&architecture=amd64&lts=true).
 
-## Administrations interface
+## Vigtig information
+
+Du skal bruge følgende information.
+
+1. Adressen til konfiguration af Proxmox.
+2. Brugernavn og kodeord
+
+### 1. Adressen til konfiguration af Proxmox
 
 Find den fysiske server og tilslut en skærm.
 Noter adressen der står på skærmen.
@@ -16,89 +23,22 @@ Derefter behøver ikke have en skærm tilsluttet serveren igen.
 
 ![Proxmox IP](./00-proxmox-ip.png)
 
-Skriv adressen ind i en web browser på din bærbar.
+*I dette eksempel er adressen `https://192.168.122.101:8006/`, men du vil
+sandsynligvis se noget andet.*
 
-![Proxmox connection warning](./01-proxmox-https-warning.png)
+### 2. Brugernavn og kodeord
 
-Du vil få en advarsel om at forbindelsen ikke er sikkert.
-Accepter og fortsæt.
+Der vil være en bruger med brugernavnet "root" og det password som blev
+indtastet under installation af Proxmox.
 
-> [!TIP]
-> Skærm billedet vil se anderledes ud afhængig af din browser.
+Har du ikke selv installeret, så spørg efter det.
 
-## Login
+## Opret første VM
 
-Derefter login, med "root" som brugernavn og det password som du skrev under
-installationen af Proxmox.
+For at oprette en første virtuelle maskine på en frisk Proxmox installation,
+kan du følge disse guides, en efter en.
 
-![Proxmox Login](./02-proxmox-login.png)
-
-Du behøver ikke en subscription.
-Bare klik "OK".
-
-![Proxmox spørger efter subscription](./03-proxmox-subscription.png)
-
-## Upload ISO
-
-I navigations træet til venstre, find et sted hvor der står noget med storage.
-I mit tilfælde hedder den "local (pve-test)" men det afhænger af hvad du kaldte
-serveren under installationen af Proxmox.
-
-Når du har fundet det, klikker du på "ISO Images", derefter "Upload" knappen.
-Vælg Ubuntu Server ISO filen som du downloade tidligere.
-
-![Upload ISO](./04-proxmox-upload-iso.png)
-
-Klik på "Upload" knappen i boksen.
-
-## Opret virtuel maskine (VM)
-
-Du er nu klar til at opretter en VM.
-Dette gøre ved at klikke på knappen "Create VM" øverst.
-
-![Create VM](./05-create-vm.png)
-
-Giv den et navn så dig og andre nemt kan kende den.
-F.eks. dit brugernavn her på akademiet (første del af din email) efterfulgt af "-ubuntu".
-For mig ville det være "rpe-ubuntu".
-Klik "Next"!
-
-Vælg Ubuntu ISO filen under "ISO Image" og klik "Next".
-
-![Select ISO image](./06-proxmox-create-os-tab.png)
-
-Du behøver ikke lave nogle ændringer under "System" fanebladet.
-Derfor er dette billede ikke vidst.
-Bare klik "Next" igen.
-
-Under "Disk" fanen, vælger du en passende størrelse på den virtuelle harddisk i
-feltet "Disk Size (GiB)".
-Tallet afhænger af hvad du skal bruge din VM til.
-Defter, klik "Next".
-
-![Select disk size](./08-proxmox-create-disk-tab.png)
-
-Under "CPU" fanen skriver du 1 i "Sockets" feltet og 2 i "Cores" feltet.
-Dette kan bruges til at lave begrænsninger på hvor mange ressourcer en VM kan
-bruge af fysiske server.
-Derved kan man undgå at en VM gør de andre langsomme.
-
-Klik "Next".
-
-Under "Memory" kan du vælge hvor meget hukommelse (RAM) din VM har til
-rådighed.
-I de fleste tilfælde vil 2048 MiB (mega-bytes) være nok.
-
-Klik "Next".
-
-Under "Network" fanen behøver vi ikke ændre noget, så bare "Next" igen.
-
-Til slut får du en opsummering hvad du har valgt.
-
-![Confirm oprettelse af VM](./12-proxmox-create-confirm.png)
-
-Du burde nu kunne se navnet på din VM i navigationen i venstre side.
-Dobbelt-klik på navnet.
-Derefter på knappen "⏻ Start now".
-
-## [Installer Ubuntu Server](./install-ubuntu-server.md)
+- [Login](./proxmox-login.md)
+- [Upload ISO](./proxmox-upload-iso.md)
+- [Opret VM](./proxmox-create-vm.md)
+  - [Install Ubuntu Server](./install-ubuntu-server.md)
