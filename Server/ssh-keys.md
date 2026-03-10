@@ -58,7 +58,7 @@ On macOS (and Linux), you should run the following command in a terminal on
 **your own** computer.
 Also, replacing `<user>` and `<ip>` with the values for your server.
 
-```bash
+```sh
 cat ~/.ssh/id_ed25519.pub | ssh <user>@<ip> "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
@@ -122,7 +122,7 @@ Of course replacing `<user>` and `<ip>` with the values for your server.
 To disable password authentication, you need to edit the configuration for the
 SSH [daemon](https://en.wikipedia.org/wiki/Daemon_(computing)).
 
-```bash
+```sh
 sudoedit /etc/ssh/sshd_config
 ```
 
@@ -131,7 +131,7 @@ Find the line `PasswordAuthentication yes` and change it to
 
 You can test it with:
 
-```bash
+```sh
 sudo sshd -T | grep authentication
 ```
 
@@ -139,20 +139,20 @@ You should see a line that says `passwordauthentication no`.
 There might be another config file that overrides the setting.
 You can find it with:
 
-```bash
+```sh
 sudo grep -ri passwordauthentication /etc/ssh/sshd_config.d/
 ```
 
 I had a `/etc/ssh/sshd_config.d/50-cloud-init.conf` file show up.
 So I removed it with:
 
-```bash
+```sh
 sudo rm /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 
 Test again:
 
-```bas
+```sh
 sudo sshd -T | grep authentication
 ```
 
@@ -164,7 +164,7 @@ For the changes to take effect, you'll need to restart the SSH daemon.
 
 You can restart with the following commands:
 
-```bash
+```sh
 systemctl daemon-reload
 systemctl restart ssh.socket
 ```
