@@ -13,8 +13,8 @@ While updates are being installed, the system (for the most part) can continue
 to function as normal.
 Updates on Linux generally have much lower risk than updates on Windows.
 
-To check that "Unattended upgrades" are installed on your Ubuntu Server, run the
-following command:
+To check that "Unattended upgrades" are installed on your Ubuntu Server, run
+  the following command:
 
 ```sh
 apt search unattended-upgrade
@@ -62,4 +62,10 @@ You can see the update log with:
 cat /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
 ```
 
-There are many configuration options that can be set for "Unattended Upgrades"
+There are many configuration options that can be set for "Unattended Upgrades".
+Among them are skipping updates for some packages, postponing updates, or
+sending summary by email.
+
+You can read more about "Unattended Upgrades" in [Ubuntu Server - Automatic
+updates](https://ubuntu.com/server/docs/how-to/software/automatic-updates/#where-to-pick-updates-from)
+documentation.
