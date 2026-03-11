@@ -102,10 +102,6 @@ They would have to somehow steal the `id_ed25519` file from your computer.
 And if you entered a passphrase, then they would also have to crack the
 encryption.
 
-Hurray, you've added two-factor authentication (2FA) to your server.
-The factors being something your have (private key file) and something you know
-(passphrase).
-
 When you log in to the server, you should be asked to enter the new passphrase
 instead of the old user password.
 Try it:
