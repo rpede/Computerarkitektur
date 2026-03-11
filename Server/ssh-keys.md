@@ -161,8 +161,8 @@ For the changes to take effect, you'll need to restart the SSH daemon.
 You can restart with the following commands:
 
 ```sh
-systemctl daemon-reload
-systemctl restart ssh.socket
+sudo systemctl daemon-reload
+sudo systemctl restart ssh.socket
 ```
 
 Make sure you can still access the server.
