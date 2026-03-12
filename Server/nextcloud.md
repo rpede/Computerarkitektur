@@ -183,6 +183,12 @@ sudo a2enmod dir
 sudo a2enmod mime
 ```
 
+To enable your nextcloud apache configuration, run:
+
+```sh
+sudo a2ensite nextcloud.conf
+```
+
 We need to restart the apache2 service for the changes to take effect.
 
 ```sh
