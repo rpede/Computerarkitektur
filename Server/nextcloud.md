@@ -44,7 +44,7 @@ commands to the database engine.
 sudo mysql
 ```
 
-You should see the text `MariaDB [(root)]>`.
+You should see the text `MariaDB [(root)]>` or `MariaDB [(none)]>`.
 Now enter the following lines, replacing `username` and `password` with
 appropriate values, and confirm them with the Enter key:
 
@@ -222,6 +222,37 @@ The clients allow easy synchronization of files from devices (phones, laptops et
 This guide is not intended to give you a ready solution to replace your Dropbox
 or whatever.
 It is just intended to let you do something cool with your Ubuntu server.
+
+## Change database credentials
+
+If you at some point later want to change database credentials, then here is
+how to do it.
+
+```sh
+sudo mysql
+```
+
+Replace `new_password` in the following command before you run it:
+
+```mysql
+ALTER USER 'username'@'localhost' IDENTIFIED BY 'new_password';
+```
+
+Type `exit` to get back to the normal shell.
+
+Then you need to change edit the configuration file for nextcloud to match.
+
+```sh
+sudoedit /var/www/nextcloud/config/config.php
+```
+
+Find the lines similar to these.
+Change the values after the `=>` arrow.
+
+```
+  'dbuser' => 'username',
+  'dbpassword' => 'password',
+```
 
 ## Sources
 
