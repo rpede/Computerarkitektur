@@ -90,3 +90,8 @@ the IP listed in the "Banned IP list" from the command above.
 ```sh
 sudo fail2ban-client set nextcloud unbanip <YOUR-IP>
 ```
+
+Here are some alternatives to fail2ban:
+
+- [reaction](https://framagit.org/ppom/reaction)
+- [CrowdSec](https://github.com/crowdsecurity/crowdsec)
