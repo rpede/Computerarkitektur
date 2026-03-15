@@ -8,13 +8,13 @@ It is called "Unattended upgrades".
 Updates on Linux can generally be installed while the system is running.
 Occasionally the component being updated needs to be restarted for the update
 to take effect.
-It is relatively rarer that the system needs a full reboot.
+It is relatively rare that the system needs a full reboot.
 While updates are being installed, the system (for the most part) can continue
 to function as normal.
 Updates on Linux generally have much lower risk than updates on Windows.
 
 To check that "Unattended upgrades" are installed on your Ubuntu Server, run
-  the following command:
+the following command:
 
 ```sh
 apt search unattended-upgrade
@@ -63,7 +63,7 @@ cat /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
 ```
 
 There are many configuration options that can be set for "Unattended Upgrades".
-Among them are skipping updates for some packages, postponing updates, or
+Among them are, skipping updates for some packages, postponing updates, or
 sending summary by email.
 
 You can read more about "Unattended Upgrades" in [Ubuntu Server - Automatic
