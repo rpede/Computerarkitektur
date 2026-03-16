@@ -43,7 +43,7 @@ I got the configuration from
 You can see the log for NextCloud with this command:
 
 ```sh
-cat /var/www/nextcloud/data/nextcloud.log
+sudo cat /var/www/nextcloud/data/nextcloud.log
 ```
 
 That is the log file we will have fail2ban to watch failed login attempts using
