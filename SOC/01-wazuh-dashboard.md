@@ -16,6 +16,24 @@ It should look something like this after login:
 
 ![Wazuh dashboard](./wazuh-dashboard.png)
 
+## Alerts
+
+You will probably see that there are a bunch of medium and low alerts.
+
+![Alerts](./wazuh-alerts.png)
+
+Most of these alerts are things that can be done to further harden the system.
+Instead of hardening each system individually it would be better to create a
+pre-hardened template to deploy new VMs from, however that is out of scope for
+this guide.
+
+Alert are triggered based on Wazuh rules.
+They define how log data should be interpreted.
+New rules can be added and you can customize existing.
+
+It is possible to have Wazuh send emails with alerts on a configurable severity
+level.
+
 ## IT Hygiene
 
 The dashboard might look overwhelming at first.
