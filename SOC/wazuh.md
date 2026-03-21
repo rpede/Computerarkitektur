@@ -26,8 +26,8 @@ For brevity, we will think of these components as a single logical unit and
 call it Wazuh server.
 Then we have the **agent**.
 This is what gets installed on the systems what you want to monitor with Wazuh.
-That is all your end user devices (Windows, macOS, Linux) and your servers
-(Linux, Solaris, AIX etc.).
+This includes all your end user devices (Windows, macOS, Linux) and your
+servers (Linux, Solaris, AIX etc.).
 
 The **agent** is installed on the system you want to manage with Wazuh.
 
@@ -52,8 +52,10 @@ on your NextCloud VM.
 
 Following are some lab exercises designed to provide initial exposure to Wazuh.
 They are based on [Proof of Concepts guide](https://documentation.wazuh.com/current/proof-of-concept-guide/index.html) from the Wazuh documentation.
-Through these exercises, you won't get exposed to the full capabilities Wazuh as they are selected to be on the lower end of the complexity scale.
-Also, these exercises have been customized for this [NextCloud
+Through these exercises, you will get some exposure to what Wazuh can do.
+However, it far from covers all capabilities of Wazuh.
+I've selected exercises that are on the lower end of the complexity scale.
+Also, some of the exercises have been customized for this [NextCloud
 setup](/Server/nextcloud.md).
 
 1. [Wazuh dashboard](./01-wazuh-dashboard.md)
@@ -66,8 +68,8 @@ setup](/Server/nextcloud.md).
 
 **Configuration**
 
-Wazuh probably requires some more configuration to function as a full XDR than
-some solutions from big-buck vendors.
+Wazuh probably requires more configuration to function as a full XDR than some
+solutions from big-buck vendors.
 
 **Mobile**
 
