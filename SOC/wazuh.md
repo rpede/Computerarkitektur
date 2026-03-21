@@ -56,6 +56,12 @@ Through these exercises, you won't get exposed to the full capabilities Wazuh as
 Also, these exercises have been customized for this [NextCloud
 setup](/Server/nextcloud.md).
 
+1. [Wazuh dashboard](./01-wazuh-dashboard.md)
+2. [Blocking bad actors](./02-wazuh-bad-actors.md)
+3. [Detecting unauthorized processes](https://documentation.wazuh.com/current/proof-of-concept-guide/detect-unauthorized-processes-netcat.html#)
+    - Use your NextCloud server as the Ubuntu endpoint
+4. [Detecting suspicious binaries](https://documentation.wazuh.com/current/proof-of-concept-guide/poc-detect-trojan.html#)
+
 ## Limitations
 
 **Configuration**
