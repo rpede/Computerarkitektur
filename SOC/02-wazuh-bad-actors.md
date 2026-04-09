@@ -70,6 +70,7 @@ ssh <USER>@<TARGET_IP>
 
 You will need to configure the Wazuh agent to monitor the Apache access log.
 Try to `cat` the log, to see what it looks like.
+The file is `/var/log/apache2/access.log`
 
 To edit the configuration file, run:
 
