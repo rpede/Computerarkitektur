@@ -15,3 +15,5 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
   - [fail2ban](/Server/fail2ban.md)
 - SOC
   - [Wazuh](/SOC/wazuh.md)
+- Cloud
+  - [AppFlowy](/Cloud/appflowy.md)
