@@ -9,7 +9,7 @@ Skal du læse en værdi en i en RAM adresse, så bruger du `LOD` til at læse
 værdien in i ACC, derefter kan du gemme den i en RAM adresse med `STO`.
 F.eks. for at få værdien "10" til at stå i RAM adresse 4, skal du skrive:
 
-![](./LOD-STO.png)
+![LOD STO NOP](./LOD-STO.png)
 
 Hvis du i stedet vil angive adressen med et label, ser det således ud:
 
@@ -17,7 +17,7 @@ Hvis du i stedet vil angive adressen med et label, ser det således ud:
 
 Du kan se et par eksempler på programmer ved klikke på "Examples" knappen.
 
-![](./examples.png)
+![Load example](./examples.png)
 
 Se [manualen](https://cpuvisualsimulator.github.io/manual) for beskrivelse af
 hele instruktionssæt og flere eksempler.
@@ -52,7 +52,7 @@ personen er gammel nok.
 Og værdien 00000000 til at repræsentere falsk (false), altså at personen ikke
 er gammel nok.
 
-## 4. More logik
+## 4. Mere logik
 
 CPU simulatoren har også en instruktion som hedder ADD og en der hedder OR.
 Disse gør det samme som de ADD og OR gates vi har snakket om tidligere, dog
