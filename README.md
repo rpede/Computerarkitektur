@@ -6,7 +6,7 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
 
 - CPU
   - [Adder circuit](/CPU/adder/exercise.md)
-  - [Maskinkode opgaver](/CPU/maskinekode/opgaver.md)
+  - [Machine code](/CPU/maskinekode/opgaver.md)
 - Virtualization
   - [Virtuel Ubuntu i Proxmox](/Virtualization/proxmox-vm.md)
 - Server
