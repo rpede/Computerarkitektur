@@ -39,18 +39,22 @@ instruktioner.
 længere end den første, da de er svære. Vil dog som minimum bede dig om at læse
 alle opgaverne samt at give det et forsøg.*
 
-## 1. Nedtælling
+## 1. Tæl til 10
 
-Lav et program som tæller ned fra 10.
+Lav et program som tæller fra 0 til (og med) 10.
 
-## 2. Gange uden MUL
+## 2. Nedtælling
+
+Lav et program som tæller ned fra 10 til 0.
+
+## 3. Gange uden MUL
 
 Lav et program der ganger 2 tal uden at bruge MUL instruktionen.
 
 *Nogle mikrokontroller har ikke en instruktionen til at gange, i stedet
 foretages dette ved at gentage ADD instruktionen.*
 
-## 3. Logik
+## 4. Logik
 
 Lav et program som læser en persons alder fra RAM adresse 32.
 Derefter, udregner om en person er gammel nok til at have stemmeret i Danmark.
@@ -61,7 +65,7 @@ personen er gammel nok.
 Og værdien 00000000 til at repræsentere falsk (false), altså at personen ikke
 er gammel nok.
 
-## 4. Mere logik
+## 5. Mere logik
 
 CPU simulatoren har også en instruktion som hedder AND og en der hedder OR.
 Disse gør det samme som de AND og OR gates vi har snakket om tidligere, dog
