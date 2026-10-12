@@ -10,6 +10,7 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
 - Virtualization
   - [Virtuel Ubuntu i Proxmox](/Virtualization/proxmox-vm.md)
 - Server
+  - [Apache](./Server/apache.md)
   - [NextCloud](/Server/nextcloud.md)
   - [SSH Keys](/Server/ssh-keys.md)
   - [Unattended upgrade](/Server/unattended-upgrades.md)
