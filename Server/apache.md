@@ -436,8 +436,8 @@ cat /var/log/apache2/example.com-access.log
 cat /var/log/apache2/example.com-error.log
 ```
 
-In a real world set up, one would have a tool monitoring log files across all
-servers, using AI to detect abnormalities, which could indicate an attack.
+In a real world set up, one would have a system that monitors log files across
+all servers, using AI to detect abnormalities, which could indicate an attack.
 
 ### Hide Apache version information
 
@@ -448,8 +448,8 @@ curl -I http://localhost
 ```
 
 You will see somewhere, it says `Server: Apache/2.4.66 (Ubuntu)`.
-Attackers can use this information to check if there are any known
-vulnerabilities for that particular version of Apache that can be exploited.
+Attackers can use this information, to check if there are any known
+vulnerabilities for that particular version of Apache, that can be exploited.
 We can disable the version information as follows.
 
 ```sh
@@ -479,6 +479,12 @@ curl -I http://localhost
 ```
 
 ### Add security headers
+
+Some common vulnerabilities in web applications can simply be mitigated by
+setting additional headers, instructing the browser on how to behave.
+It doesn't make much of a difference for this static website, but it might on
+other sites.
+It is therefore a good habit to always configure.
 
 Enable the headers module:
 
@@ -511,6 +517,9 @@ Test with:
 ```sh
 curl -I http://localhost
 ```
+
+Google the header names (`X-Content-Type-Options`, `X-Frame-Options` and
+`Referrer-Policy`) or AI, see if you can understand what they do.
 
 ### Enable compression
 
@@ -603,3 +612,65 @@ Before:
 After:
 
 ![Page load with cache](./with-cache.png)
+
+**Note:** you can specify how long before the cache expires per file type.
+
+Using caching have a huge drawback.
+It means that users will not see any changes to your site for as long as their
+browser keeps the cached version.
+Commonly, one would configure a low expiration for `text/html` files, then use
+a new unique name for each new version of the other files.
+That way, users see fresh content, without having to re-fetch all resources.
+
+Caching is especially important for images, as it can save a lot of bandwidth
+and make the site feel a lot faster to navigate.
+
+## Enable HTTPS
+
+HTTPS is the secure version of HTTP protocol, using encryption to secure the
+connection (protect integrity and confidentiality).
+This can be accomplished for free using the service [Let's
+Encrypt](https://letsencrypt.org/).
+However, it requires that you have a domain for the server and that it is
+publicly available, which we don't have for this setup.
+Therefore, the following is just to show how it can be configured.
+You be able to set it up yourself, because of the aforementioned limitation of
+our setup.
+
+You should continue reading, but not running the commands.
+
+### Install Certbot
+
+```bash
+sudo apt install certbot python3-certbot-apache -y
+```
+
+### Obtain and install a certificate
+
+```bash
+sudo certbot --apache -d example.com -d www.example.com
+```
+
+Certbot will:
+
+1. Ask for an email address (for expiry notices)
+2. Ask you to accept the terms of service
+3. Verify you control the domain
+4. Create an SSL virtual host (`example.com-le-ssl.conf`)
+5. Offer to redirect all HTTP traffic to HTTPS. Choose the redirect option.
+
+### Verify automatic renewal
+
+Certificates last 90 days.
+The Certbot package installs a systemd timer that renews them automatically.
+Test it with a dry run:
+
+```bash
+sudo systemctl list-timers | grep certbot
+sudo certbot renew --dry-run
+```
+
+### Confirm
+
+Visit `https://example.com`.
+You should see the padlock icon in your browser.
