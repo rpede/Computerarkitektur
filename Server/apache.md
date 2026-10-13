@@ -42,7 +42,7 @@ SSH access is recommended, but not strictly required.
 
 Start by making sure your server is up-to-date.
 
-```bash
+```sh
 sudo apt update
 sudo apt upgrade -y
 ```
@@ -55,7 +55,7 @@ as `-y` means answer yes to all questions.
 
 Apache is available under the package name `apache2`, so you can install it with the following command:
 
-```bash
+```sh
 sudo apt install apache2 -y
 ```
 
@@ -69,7 +69,7 @@ rather than directly through the terminal.
 
 You can verify that the `apache2` service is running with:
 
-```bash
+```sh
 sudo systemctl status apache2
 ```
 
@@ -84,7 +84,7 @@ Many packages on Ubuntu, ships with firewall profiles.
 
 You can see the profiles you have available with:
 
-```bash
+```sh
 sudo ufw app list
 ```
 
@@ -101,7 +101,7 @@ on the default ports.
 Also, if you access the server over SSH, you must allow the "OpenSSH" profile,
 otherwise you will lose access.
 
-```bash
+```sh
 sudo ufw allow 'Apache Full'
 sudo ufw allow 'OpenSSH'
 ```
@@ -110,7 +110,7 @@ Next, you need to make sure the firewall is enabled and got the profiles
 loaded.
 You can check if the firewall is enabled with:
 
-```bash
+```sh
 sudo ufw status
 ```
 
@@ -118,7 +118,7 @@ On a fresh Ubuntu install it will say `Status: inactive`, meaning that the
 firewall haven't been enabled yet.
 To make sure the firewall is enabled, and the right rules are set, do:
 
-```bash
+```sh
 sudo ufw enable
 sudo ufw reload
 ```
@@ -143,7 +143,7 @@ for?
 The default is to allow outgoing connections and deny all incoming.
 You can view the default rule by running:
 
-```bash
+```sh
 sudo ufw status verbose
 ```
 
@@ -151,13 +151,11 @@ sudo ufw status verbose
 
 It might be a good time to check that everything works so far.
 Apache comes with a default web-page, let's try if we can access it.
-
 You need to find the servers IP address.
 This can be done in a couple of different ways.
+One way that works across just about every Linux distributions, is with:
 
-One with that works across just about every Linux distributions is with:
-
-```bash
+```sh
 ip address
 ```
 
@@ -168,7 +166,7 @@ There is a special loopback device (`lo`) with the IPv4 `127.0.0.1` or IPv6
 The command `curl` is commonly used to make web request from the terminal.
 We can use it to check that Apache works from the server itself.
 
-```bash
+```sh
 curl -I http://127.0.0.1
 ```
 
@@ -179,19 +177,19 @@ If you run the command again without `-I` then you will see the response body.
 Systems typically have the host name `localhost` pointing to `127.0.0.1`, so
 that should work as well.
 
-```bash
+```sh
 curl -I http://localhost
 ```
 
 Next, try to access the page from a web browser on your own computer.
-Using the IP `127.0.0.1` won't work since on your computer it will loop back to
-your own machine.
+Using the IP `127.0.0.1` won't work, since on your computer, it will loop back
+to your own machine.
 
 Let's try a different command to find the servers IP.
 This command might no work on all Linux variants, but on Ubuntu, it likely
 gives you just the IP you are interested in.
 
-```bash
+```sh
 hostname -I
 ```
 
@@ -204,13 +202,13 @@ You should see the default **Apache2 Ubuntu Default Page**.
 By default, Apache serves files from `/var/www/html`.
 If you `cat` the `index.html` file:
 
-```bash
+```sh
 cat /var/www/html/index.html
 ```
 
 You will see the same as if you made a request with `curl`:
 
-```bash
+```sh
 curl http://localhost
 ```
 
@@ -218,24 +216,31 @@ curl http://localhost
 
 ### Create the directory
 
-```bash
+Create a directory for the site.
+Static files will be served from `public_html` subdirectory.
+In a real world set up you would replace `example.com` with the domain name of
+your site.
+
+```sh
 sudo mkdir -p /var/www/example.com/public_html
 ```
 
 ### Set ownership and permissions
 
-Give your user ownership so you can edit files without `sudo`, and make sure Apache (which runs as `www-data`) can read them:
+Give your user ownership so you can edit files without `sudo`, and make sure
+Apache (which runs as `www-data`) can read them:
 
-```bash
+```sh
 sudo chown -R $USER:$USER /var/www/example.com
 sudo chmod -R 755 /var/www/example.com
 ```
 
-`755` means the owner can read/write/execute, while everyone else (including Apache) can read and traverse directories.
+`755` means the owner can read/write/execute, while everyone else (including
+Apache) can read and traverse directories.
 
 ### Create an `index.html`
 
-```bash
+```sh
 nano /var/www/example.com/public_html/index.html
 ```
 
@@ -263,7 +268,7 @@ Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 
 ### Add a stylesheet (optional)
 
-```bash
+```sh
 nano /var/www/example.com/public_html/style.css
 ```
 
@@ -292,7 +297,7 @@ This lets one server host many sites.
 
 Create a new configuration file:
 
-```bash
+```sh
 sudo nano /etc/apache2/sites-available/example.com.conf
 ```
 
@@ -300,10 +305,6 @@ Add the following:
 
 ```apache
 <VirtualHost *:80>
-    ServerName example.com
-    ServerAlias www.example.com
-    ServerAdmin webmaster@example.com
-
     DocumentRoot /var/www/example.com/public_html
 
     <Directory /var/www/example.com/public_html>
@@ -319,13 +320,29 @@ Add the following:
 </VirtualHost>
 ```
 
+Here are what the different parts of the configuration means.
+
+| Directive | Purpose |
+|---|---|
+| `DocumentRoot` | The folder containing your site's files |
+| `Options -Indexes` | Disables directory listings, so visitors can't browse folders that lack an `index.html` |
+| `Options +FollowSymLinks` | Allows Apache to follow symbolic links |
+| `AllowOverride None` | Ignores `.htaccess` files (faster and more secure for a static site) |
+| `Require all granted` | Allows all visitors to access the directory |
+| `ErrorDocument 404` | Serves your custom 404 page |
+| `ErrorLog` / `CustomLog` | Per-site log files in `/var/log/apache2/` |
+
 ### Enable your site and disable the default one
 
-```bash
+```sh
 sudo a2ensite example.com.conf
 sudo a2dissite 000-default.conf
 sudo systemctl reload apache2
 ```
+
+`a2ensite` means "Apache2 enable site" and `a2dissite` means "Apache2 disable
+site", where `000-default.conf` is the configuration file for the default site
+that ships with Apache on Ubuntu.
 
 > Disabling the default site is recommended so requests that don't match any
 > `ServerName` don't fall through to the placeholder page. If you'd like to
@@ -336,7 +353,7 @@ sudo systemctl reload apache2
 
 #### Check for syntax errors
 
-```bash
+```sh
 sudo apache2ctl configtest
 ```
 
@@ -348,7 +365,7 @@ Syntax OK
 
 If you see a warning like `Could not reliably determine the server's fully qualified domain name`, it's harmless, but you can fix it:
 
-```bash
+```sh
 echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
 sudo a2enconf servername
 ```
@@ -369,36 +386,64 @@ If interested, you can add the following at line 2 of `/etc/apache2/sites-availa
 ```apache
     ServerName example.com
     ServerAlias www.example.com
-    ServerAdmin webmaster@example.com
 ```
+
+| Directive | Purpose |
+|---|---|
+| `ServerName` | The primary domain this virtual host answers for |
+| `ServerAlias` | Additional names (e.g., the `www` version) |
 
 Reload Apache:
 
-```bash
+```sh
 sudo systemctl reload apache2
 ```
 
 Test with:
 
-```bash
+```sh
 curl -H "Host: example.com" http://localhost
 ```
 
-Now remove the `SeverName`, `ServerAlias` and `ServerAdmin` lines again from
+Apache will now resolve the site using `HOST` header of HTTP request.
+Browsers will automatically set it to what was typed in the address bar.
+Because we don't have an actual domain for the site, the settings should be
+disabled again, by removing the `SeverName` and `ServerAlias` lines again from
 the `/etc/apache2/sites-available/example.com.conf` file.
-And do another reload:
+After removed, do another reload:
 
-```bash
+```sh
 sudo systemctl reload apache2
 ```
 
-## Optional Hardening and Performance Tweaks
+## Hardening and Performance Tweaks
+
+### Inspect the logs
+
+Apache created log files for the site as specified in the Virtual Host configuration.
+
+```apache
+    ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
+    CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
+```
+
+Where `APACHE_LOG_DIR` is a variable referring to `/var/log/apache2` directory.
+
+You can therefore inspect the logs using:
+
+```sh
+cat /var/log/apache2/example.com-access.log
+cat /var/log/apache2/example.com-error.log
+```
+
+In a real world set up, one would have a tool monitoring log files across all
+servers, using AI to detect abnormalities, which could indicate an attack.
 
 ### Hide Apache version information
 
 If you run:
 
-```bash
+```sh
 curl -I http://localhost
 ```
 
@@ -407,7 +452,7 @@ Attackers can use this information to check if there are any known
 vulnerabilities for that particular version of Apache that can be exploited.
 We can disable the version information as follows.
 
-```bash
+```sh
 sudo nano /etc/apache2/conf-available/security.conf
 ```
 
@@ -423,13 +468,13 @@ configuration, they are only there for documentation.
 
 Apply the change:
 
-```bash
+```sh
 sudo systemctl reload apache2
 ```
 
 Test with:
 
-```bash
+```sh
 curl -I http://localhost
 ```
 
@@ -437,13 +482,13 @@ curl -I http://localhost
 
 Enable the headers module:
 
-```bash
+```sh
 sudo a2enmod headers
 ```
 
 Open the configuration:
 
-```bash
+```sh
 sudo nano /etc/apache2/sites-available/example.com.conf
 ```
 
@@ -457,13 +502,13 @@ Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 Apply the change:
 
-```bash
+```sh
 sudo systemctl reload apache2
 ```
 
 Test with:
 
-```bash
+```sh
 curl -I http://localhost
 ```
 
@@ -472,13 +517,13 @@ curl -I http://localhost
 Compression reduces bandwidth and speeds up page loads.
 The `deflate` module is usually enabled by default; confirm with:
 
-```bash
+```sh
 sudo a2enmod deflate
 ```
 
 Open the configuration:
 
-```bash
+```sh
 sudo nano /etc/apache2/sites-available/example.com.conf
 ```
 
@@ -493,13 +538,13 @@ Add the following inside your `<VirtualHost>` block.
 
 Check the configuration and apply the changes:
 
-```bash
+```sh
 sudo apache2ctl configtest && sudo systemctl reload apache2
 ```
 
 Test:
 
-```bash
+```sh
 curl -I --compressed http://localhost
 ```
 
@@ -516,13 +561,13 @@ your server, would be if your browser could just show the page, without having
 to make a request to the server.
 This can easily be done by instructing the browser to cache the website.
 
-```bash
+```sh
 sudo a2enmod expires
 ```
 
 Open the configuration:
 
-```bash
+```sh
 sudo nano /etc/apache2/sites-available/example.com.conf
 ```
 
@@ -543,7 +588,7 @@ Add the following inside your `<VirtualHost>` block.
 
 Check the configuration and apply the changes:
 
-```bash
+```sh
 sudo apache2ctl configtest && sudo systemctl reload apache2
 ```
 
