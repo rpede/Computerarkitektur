@@ -1,4 +1,4 @@
-# Template for Ubuntu Server
+# Klon Ubuntu Server
 
 ## Baggrund
 

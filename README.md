@@ -11,6 +11,8 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
   - [Proxmox Login](/Virtualization/proxmox-login.md)
   - [Upload ISO](/Virtualization/proxmox-upload-iso.md)
   - [Opret en virtuel maskine](/Virtualization/proxmox-create-vm.md)
+  - [Installer Ubuntu Server](/Virtualization/install-ubuntu-server.md)
+  - [Klon Ubuntu Server](/Virtualization/clone-ubuntu-server.md)
 - Server
   - [Apache](./Server/apache.md)
   - [NextCloud](/Server/nextcloud.md)
