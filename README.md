@@ -7,8 +7,10 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
 - CPU
   - [Adder circuit](/CPU/adder/exercise.md)
   - [Machine code](/CPU/maskinekode/opgaver.md)
-- Virtualization
-  - [Virtuel Ubuntu i Proxmox](/Virtualization/proxmox-vm.md)
+- [Virtualisering med Proxmox](/Virtualization/proxmox-vm.md)
+  - [Proxmox Login](/Virtualization/proxmox-login.md)
+  - [Upload ISO](/Virtualization/proxmox-upload-iso.md)
+  - [Opret en virtuel maskine](/Virtualization/proxmox-create-vm.md)
 - Server
   - [Apache](./Server/apache.md)
   - [NextCloud](/Server/nextcloud.md)
