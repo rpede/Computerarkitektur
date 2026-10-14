@@ -1,6 +1,9 @@
 # Proxmox login
 
-Skriv den oplyste adresse ind i en web browser.
+Skriv IP adressen på Proxmox serveren efterfulgt af ":8006" i adresse feltet i
+en web browser.
+F.eks. har Proxmox serveren IP 192.168.122.101, skal der stå
+<https://192.168.122.101:8006> i adresse feltet.
 
 Du vil få en advarsel om at forbindelsen ikke er sikkert.
 Accepter risikoen og fortsæt.
@@ -8,7 +11,7 @@ Accepter risikoen og fortsæt.
 ![Proxmox connection warning](./01-proxmox-https-warning.png)
 
 > [!TIP]
-> Skærm billedet vil se anderledes ud afhængig af din browser.
+> Skærm billedet kan se anderledes ud afhængig af din browser.
 
 Advarslen betyder bare at jeg ikke har betalt en certifikatmyndighed for at
 signere et certifikat til serveren.
