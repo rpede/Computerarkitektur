@@ -15,7 +15,7 @@
   - I "Password" feltet, skriver du at kodeord som du kan huske til næste uge.
   - I "Hostname" feltet, skriver du samme navn som du brugte under oprettelsen af VM i Proxmox.
 - Spring over hvor der står "Upgrade to Ubuntu Pro".
-- VIGTIG! vælg [x] ved "Install OpenSSH server".
+- VIGTIG! vælg `[x]` ved "Install OpenSSH server".
 - Ikke vælg noget i "Featured server snaps".
 - Vent til den siger "Installation complete!", derefter vælg "Reboot Now".
 
