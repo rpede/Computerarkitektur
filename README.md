@@ -9,6 +9,7 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
   - [Machine code](/CPU/maskinekode/opgaver.md)
 - [Virtualisering med Proxmox](/Virtualization/proxmox-vm.md)
   - [Proxmox Login](/Virtualization/proxmox-login.md)
+  - [Proxmox resource pool](/Virtualization/proxmox-pool.md)
   - [Upload ISO](/Virtualization/proxmox-upload-iso.md)
   - [Opret en virtuel maskine](/Virtualization/proxmox-create-vm.md)
   - [Installer Ubuntu Server](/Virtualization/install-ubuntu-server.md)
