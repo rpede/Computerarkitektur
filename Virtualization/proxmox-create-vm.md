@@ -3,27 +3,40 @@
 Prøv at oprette en VM.
 Dette gøres ved at klikke på knappen "Create VM" øverst.
 
+## General
+
 ![Create VM](./05-create-vm.png)
 
 Giv den et navn, så dig og andre nemt kan kende den.
 F.eks. dit brugernavn her på akademiet (første del af din email) efterfulgt af "-ubuntu".
 For mig ville det være "rpe-ubuntu".
+
+Under "Resource Pool" vægler du den pool du er blevet tildelt.
+
 Klik "Next"!
+
+## OS
 
 Vælg Ubuntu ISO filen under "ISO Image" og klik "Next".
 
 ![Select ISO image](./06-proxmox-create-os-tab.png)
 
+## System
+
 Du behøver ikke lave nogle ændringer under "System" fanebladet.
 Derfor er dette billede ikke vidst.
 Bare klik "Next" igen.
+
+## Disk
+
+![Select disk size](./08-proxmox-create-disk-tab.png)
 
 Under "Disk" fanen, vælger du en passende størrelse på den virtuelle harddisk i
 feltet "Disk Size (GiB)".
 Størrelsen afhænger af hvad du skal bruge din VM til.
 Defter, klik "Next".
 
-![Select disk size](./08-proxmox-create-disk-tab.png)
+## CPU
 
 Under "CPU" fanen skriver du 1 i "Sockets" feltet og 2 i "Cores" feltet.
 Dette bruges til at lave begrænsninger på hvor mange ressourcer en VM kan
@@ -32,13 +45,19 @@ Derved kan man undgå at en VM gør de andre langsomme.
 
 Klik "Next".
 
+## Memory
+
 Under "Memory" kan du vælge hvor meget hukommelse (RAM) din VM skal have til
   rådighed.
 I de fleste tilfælde vil 2048 MiB (mega-bytes) være nok.
 
 Klik "Next".
 
+## Network
+
 Under "Network" fanen behøver vi ikke ændre noget, så bare "Next" igen.
+
+## Confirm
 
 Til slut får du en opsummering hvad du har valgt.
 
