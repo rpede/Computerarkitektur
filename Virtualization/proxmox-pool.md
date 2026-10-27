@@ -44,6 +44,8 @@ Select "permissions".
 Now, create group permissions as shown.
 Of course, use your group instead of "@rpe".
 
+![Proxmox datacenter permissions](./pve-permissions.png)
+
 ## Create user account
 
 Finally, we need to create a user account.
@@ -60,4 +62,12 @@ Finally, we need to create a user account.
 ## Login
 
 You should now be able to login with your new user.
-Try it out!
+
+Logout from the dropdown menu in the top right corner.
+
+![Proxmox Logout](./pve-logout.png)
+
+When you enter the credentials for your new user, make sure you have realm
+"Proxmox VE authentication server" selected.
+
+![Proxmox Login Realm](./pve-login-realm.png)
