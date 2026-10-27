@@ -51,6 +51,7 @@ Of course, use your group instead of "@rpe".
 Finally, we need to create a user account.
 
 - Under "Datacenter" -> "Permissions" -> "Users", click "Add".
+- Select your group in the "Group" field.
 - Type your username in the "User Name" field.
 - Select "Proxmox VE authentication server" in "Realm" field.
 - Fill out the password fields with a secure password that you can remember.
