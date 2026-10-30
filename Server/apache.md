@@ -91,7 +91,7 @@ sudo ufw app list
 There are 3 different profiles for Apache.
 
 | Profile | Ports opened |
-|---|---|
+| --- | --- |
 | `Apache` | 80 (HTTP) only |
 | `Apache Secure` | 443 (HTTPS) only |
 | `Apache Full` | 80 and 443 |
@@ -241,7 +241,7 @@ Apache) can read and traverse directories.
 ### Create an `index.html`
 
 ```sh
-nano /var/www/example.com/public_html/index.html
+sudo nano /var/www/example.com/public_html/index.html
 ```
 
 Paste the following:
@@ -269,7 +269,7 @@ Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 ### Add a stylesheet (optional)
 
 ```sh
-nano /var/www/example.com/public_html/style.css
+sudo nano /var/www/example.com/public_html/style.css
 ```
 
 ```css
@@ -323,7 +323,7 @@ Add the following:
 Here are what the different parts of the configuration means.
 
 | Directive | Purpose |
-|---|---|
+| --- | --- |
 | `DocumentRoot` | The folder containing your site's files |
 | `Options -Indexes` | Disables directory listings, so visitors can't browse folders that lack an `index.html` |
 | `Options +FollowSymLinks` | Allows Apache to follow symbolic links |
@@ -389,7 +389,7 @@ If interested, you can add the following at line 2 of `/etc/apache2/sites-availa
 ```
 
 | Directive | Purpose |
-|---|---|
+| --- | --- |
 | `ServerName` | The primary domain this virtual host answers for |
 | `ServerAlias` | Additional names (e.g., the `www` version) |
 
@@ -634,10 +634,10 @@ Encrypt](https://letsencrypt.org/).
 However, it requires that you have a domain for the server and that it is
 publicly available, which we don't have for this setup.
 Therefore, the following is just to show how it can be configured.
-You be able to set it up yourself, because of the aforementioned limitation of
-our setup.
+You are not able to set it up yourself, because of the
+aforementioned limitation of our setup.
 
-You should continue reading, but not running the commands.
+You should continue reading, without running the commands.
 
 ### Install Certbot
 
