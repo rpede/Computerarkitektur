@@ -241,7 +241,7 @@ Apache) can read and traverse directories.
 ### Create an `index.html`
 
 ```sh
-sudoedit /var/www/example.com/public_html/index.html
+sudo nano /var/www/example.com/public_html/index.html
 ```
 
 Paste the following:
@@ -269,7 +269,7 @@ Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 ### Add a stylesheet (optional)
 
 ```sh
-sudoedit /var/www/example.com/public_html/style.css
+sudo nano /var/www/example.com/public_html/style.css
 ```
 
 ```css
@@ -298,7 +298,7 @@ This lets one server host many sites.
 Create a new configuration file:
 
 ```sh
-sudoedit /etc/apache2/sites-available/example.com.conf
+sudo nano /etc/apache2/sites-available/example.com.conf
 ```
 
 Add the following:
