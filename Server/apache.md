@@ -625,6 +625,22 @@ That way, users see fresh content, without having to re-fetch all resources.
 Caching is especially important for images, as it can save a lot of bandwidth
 and make the site feel a lot faster to navigate.
 
+## Vibe design
+
+The website looks really boring.
+Why not do something about it?
+
+I don't have time to teach you have to be a web designer.
+Also, that would be a bit of a side track.
+
+Therefore, why not vibe code a website.
+Use your favorite LLM (ChatGPT, Claude etc.) to generate a static web page.
+Then replace the `index.html` and `style.css` with whatever the model produced.
+
+Out of the free tier hosted models, I have gotten the best results with Claude.
+Be sure to instruct it to generate a static web-page, or tell it there won't be
+a backend.
+
 ## Enable HTTPS
 
 HTTPS is the secure version of HTTP protocol, using encryption to secure the
