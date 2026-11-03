@@ -231,7 +231,7 @@ Give your user ownership so you can edit files without `sudo`, and make sure
 Apache (which runs as `www-data`) can read them:
 
 ```sh
-sudo chown -R $USER:$USER /var/www/example.com
+sudo chown -R www-data:www-data /var/www/example.com
 sudo chmod -R 755 /var/www/example.com
 ```
 
