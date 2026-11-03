@@ -136,7 +136,7 @@ server.
 As the Apache2 Default Page told us, we should place the files in `/var/www` directory.
 
 ```sh
-sudo cp -r nextcloud /var/www
+sudo mv nextcloud /var/www
 ```
 
 Apache run as a user called `www-data` with limited privileges, because that
