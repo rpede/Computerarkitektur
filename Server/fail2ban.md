@@ -31,7 +31,7 @@ datepattern = ,?\s*"time"\s*:\s*"%%Y-%%m-%%d[T ]%%H:%%M:%%S(%%z)?"
 
 Save and exit.
 
-It logs a bit crazy right.
+It looks a bit crazy right.
 You don't need to understand it all.
 Here is the quick version what it does.
 It is a filter for the nextcloud log file.
