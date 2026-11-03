@@ -241,7 +241,7 @@ Apache) can read and traverse directories.
 ### Create an `index.html`
 
 ```sh
-sudo nano /var/www/example.com/public_html/index.html
+sudoedit /var/www/example.com/public_html/index.html
 ```
 
 Paste the following:
@@ -269,7 +269,7 @@ Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 ### Add a stylesheet (optional)
 
 ```sh
-sudo nano /var/www/example.com/public_html/style.css
+sudoedit /var/www/example.com/public_html/style.css
 ```
 
 ```css
@@ -298,7 +298,7 @@ This lets one server host many sites.
 Create a new configuration file:
 
 ```sh
-sudo nano /etc/apache2/sites-available/example.com.conf
+sudoedit /etc/apache2/sites-available/example.com.conf
 ```
 
 Add the following:
@@ -453,7 +453,7 @@ vulnerabilities for that particular version of Apache, that can be exploited.
 We can disable the version information as follows.
 
 ```sh
-sudo nano /etc/apache2/conf-available/security.conf
+sudoedit /etc/apache2/conf-available/security.conf
 ```
 
 Set these values:
@@ -495,7 +495,7 @@ sudo a2enmod headers
 Open the configuration:
 
 ```sh
-sudo nano /etc/apache2/sites-available/example.com.conf
+sudoedit /etc/apache2/sites-available/example.com.conf
 ```
 
 Add the following inside your `<VirtualHost>` block.
@@ -533,7 +533,7 @@ sudo a2enmod deflate
 Open the configuration:
 
 ```sh
-sudo nano /etc/apache2/sites-available/example.com.conf
+sudoedit /etc/apache2/sites-available/example.com.conf
 ```
 
 Add the following inside your `<VirtualHost>` block.
@@ -577,7 +577,7 @@ sudo a2enmod expires
 Open the configuration:
 
 ```sh
-sudo nano /etc/apache2/sites-available/example.com.conf
+sudoedit /etc/apache2/sites-available/example.com.conf
 ```
 
 Add the following inside your `<VirtualHost>` block.
