@@ -241,7 +241,7 @@ the virus.
 The official for adding antivirus scanner is found
 [here](https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/antivirus_configuration.html).
 
-> [!DANGER]
+> [!CAUTION]
 > Don't attempt to run the code.
 > I don't recommend intentionally downloading malware.
 > In this case we are just copy-pasting some text and the malware is ancient,
