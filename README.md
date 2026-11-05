@@ -15,8 +15,9 @@ Opgaver m.m. til faget Computerarkitektur på uddannelsen Cybersikkerhed på SEA
   - [Installer Ubuntu Server](/Virtualization/install-ubuntu-server.md)
   - [Klon Ubuntu Server](/Virtualization/clone-ubuntu-server.md)
 - Server
-  - [Apache](./Server/apache.md)
+  - [Apache](/Server/apache.md)
   - [NextCloud](/Server/nextcloud.md)
+  - [NextCloud hardening](/Server/nextcloud-hardening.md)
   - [SSH Keys](/Server/ssh-keys.md)
   - [Unattended upgrade](/Server/unattended-upgrades.md)
   - [fail2ban](/Server/fail2ban.md)
